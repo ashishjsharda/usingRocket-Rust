@@ -1,3 +1,8 @@
+#[get("/hello")]
+fn hello() -> &'static str {
+    "Hello, World!"
+}
+
 fn main() {
-    println!("Hello, world!");
+    rocket::ignite().mount("/", routes![hello]).launch();
 }
